@@ -1,19 +1,136 @@
 /* src/index.css */
+
+/* --- VARIÁVEIS --- */
 :root {
-  --primary-color: #D32F2F; /* Um laranja apetitoso para comida */
-  --text-dark: #333333;
-  --bg-color: #F9F9F9;
+  --status-green: #00A388; 
+  --primary-color: #D32F2F; 
+  --primary-hover: #b71c1c; /* Vermelho mais escuro para hover */
+  --text-dark: #1A1A1A;
+  --bg-color: #FFFFFF;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* --- RESET --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
+}
+
+/* --- LAYOUT GERAL --- */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff; 
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.header-container { padding: 0 0 20px 0; }
+.filter-container { padding: 10px 16px 20px 16px; }
+
+/* --- GRID DE PRODUTOS --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 24px; /* Aumentei um pouco o espaço */
+  padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --- NOVAS CLASSES (HOVER E EFEITOS) --- */
+
+/* 1. FILTROS CENTRALIZADOS E ANIMADOS */
+.category-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px;
+  scrollbar-width: none; /* Firefox */
+  
+  /* No celular, alinha à esquerda para permitir rolagem se não couber */
+  justify-content: flex-start; 
+}
+
+/* No computador, centraliza os botões */
+@media (min-width: 768px) {
+  .category-list {
+    justify-content: center;
+  }
+}
+
+.category-btn {
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #eee;
+  background-color: transparent;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Animação suave */
+  white-space: nowrap;
+}
+
+.category-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px); /* Sobe um pouquinho */
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15); /* Sombra vermelha suave */
+}
+
+.category-btn.active {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+/* 2. CARD DO PRODUTO COM EFEITO ELEVADO */
+.product-card {
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s ease; /* Animação suave */
+}
+
+.product-card:hover {
+  transform: translateY(-8px); /* Card "flutua" para cima */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1); /* Sombra forte em baixo */
+  border-color: transparent;
+}
+
+/* 3. BOTÃO DE ADICIONAR COM EFEITO POP */
+.add-btn {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito elástico */
+}
+
+.add-btn:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.15) rotate(90deg); /* Aumenta e gira levemente */
+}
+
+.add-btn:active {
+  transform: scale(0.9); /* Diminui ao clicar */
 }
