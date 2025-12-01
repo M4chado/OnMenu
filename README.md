@@ -6,7 +6,7 @@
 
 > **Link do Projeto Online:** [https://on-menu-phi.vercel.app/](https://on-menu-phi.vercel.app/)
 
-O **OnMenu** é uma Single Page Application (SPA) desenvolvida como projeto acadêmico para demonstrar conceitos avançados de desenvolvimento Frontend com React. O sistema simula a experiência completa de um consumidor em um restaurante japonês, desde a escolha dos pratos até a finalização do pedido, com foco em UI/UX responsivo e navegação fluida.
+O **OnMenu** é uma Single Page Application (SPA) desenvolvida como projeto acadêmico para demonstrar conceitos de desenvolvimento Frontend com React. O sistema simula a experiência completa de um consumidor em um restaurante japonês, desde a escolha dos pratos até a finalização do pedido, com foco em UI/UX responsivo e navegação fluida.
 
 ---
 
